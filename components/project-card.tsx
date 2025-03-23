@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -16,14 +16,14 @@ interface ProjectCardProps {
   image: string
   githubUrl?: string
   liveUrl?: string
+  isLink: string
 }
 
-export function ProjectCard({ title, description, tags, image, githubUrl, liveUrl }: ProjectCardProps) {
+export function ProjectCard({ title, description, tags, image, githubUrl, liveUrl, isLink }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
   const [rotation, setRotation] = useState({ x: 0, y: 0 })
   const [position, setPosition] = useState({ x: 0, y: 0 })
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return
@@ -40,7 +40,6 @@ export function ProjectCard({ title, description, tags, image, githubUrl, liveUr
 
     setRotation({ x: rotateX, y: rotateY })
     setPosition({ x, y })
-    setCursorPosition({ x: e.clientX, y: e.clientY })
   }
 
   const handleMouseLeave = () => {
@@ -48,22 +47,10 @@ export function ProjectCard({ title, description, tags, image, githubUrl, liveUr
     setRotation({ x: 0, y: 0 })
   }
 
-  useEffect(() => {
-    if (isHovered) {
-      document.body.style.cursor = "none"
-    } else {
-      document.body.style.cursor = "auto"
-    }
-
-    return () => {
-      document.body.style.cursor = "auto"
-    }
-  }, [isHovered])
-
   return (
     <div
       ref={cardRef}
-      className="group relative h-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-sm transition-all duration-300"
+      className="group relative h-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-sm transition-all duration-300 hoverable"
       style={{
         transform: isHovered
           ? `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) scale(1.02)`
@@ -74,22 +61,6 @@ export function ProjectCard({ title, description, tags, image, githubUrl, liveUr
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Custom cursor */}
-      {isHovered && (
-        <div
-          className="fixed z-50 pointer-events-none mix-blend-difference"
-          style={{
-            left: `${cursorPosition.x}px`,
-            top: `${cursorPosition.y}px`,
-            transform: "translate(-600%, -800%)"
-          }}
-        >
-          <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white text-black">
-            <ArrowUpRight className="w-6 h-6" />
-          </div>
-        </div>
-      )}
-
       {/* Glow effect */}
       {isHovered && (
         <div
@@ -106,7 +77,7 @@ export function ProjectCard({ title, description, tags, image, githubUrl, liveUr
         <div className="relative h-48 overflow-hidden">
           <div
             className={cn(
-              "absolute inset-0 bg-gradient-to-b from-transparent via-zinc-900/50 to-zinc-900 z-10 transition-opacity duration-300",
+              "absolute inset-0 z-10 transition-opacity duration-300",
               isHovered ? "opacity-60" : "opacity-90",
             )}
           />
@@ -136,12 +107,29 @@ export function ProjectCard({ title, description, tags, image, githubUrl, liveUr
           <h3
             className={cn(
               "mb-2 text-xl font-bold transition-all duration-300",
-              isHovered ? "text-white" : "text-emerald-400",
+              isHovered ? "text-emerald-400" : "text-white",
             )}
           >
             {title}
           </h3>
           <p className="mb-6 flex-1 text-sm text-zinc-400">{description}</p>
+          {isLink === "gallery" && (
+            <div className="flex items-center text-emerald-400 text-sm mb-4">
+              <span>View Gallery</span>
+              <ArrowUpRight className="ml-1 h-4 w-4" />
+            </div>
+          )}
+          {isLink === "medplay" && (
+            <div className="flex items-center text-emerald-400 text-sm mb-4">
+              <span>Vist Medplay</span>
+              <ArrowUpRight className="ml-1 h-4 w-4" />
+            </div>
+          )}
+          {isLink === "game" && (
+            <div className="flex items-center text-emerald-400 text-sm mb-4">
+              <span>Working on the Link part!</span>
+            </div>
+          )}
 
           <div
             className={cn(
@@ -161,7 +149,7 @@ export function ProjectCard({ title, description, tags, image, githubUrl, liveUr
               <Button
                 variant="outline"
                 size="sm"
-                className="gap-2 border-zinc-700 text-zinc-300 hover:border-emerald-500 hover:text-emerald-500 transition-all duration-300"
+                className="gap-2 border-zinc-700 text-zinc-300 hover:border-emerald-500 hover:text-emerald-500 transition-all duration-300 hoverable"
               >
                 <Github className="h-4 w-4" />
                 Code
@@ -170,7 +158,7 @@ export function ProjectCard({ title, description, tags, image, githubUrl, liveUr
             {liveUrl && (
               <Button
                 size="sm"
-                className="gap-2 bg-emerald-500 text-white hover:bg-emerald-600 transition-all duration-300"
+                className="gap-2 bg-emerald-500 text-white hover:bg-emerald-600 transition-all duration-300 hoverable"
               >
                 <ExternalLink className="h-4 w-4" />
                 Live Demo
@@ -187,7 +175,7 @@ export function ProjectCard({ title, description, tags, image, githubUrl, liveUr
           isHovered ? "opacity-100" : "opacity-0",
         )}
       >
-        <div className="absolute inset-[-1px] rounded-xl " />
+        <div className="absolute inset-[-1px] rounded-xl animate-gradient-x" />
       </div>
     </div>
   )

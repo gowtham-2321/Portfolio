@@ -13,17 +13,34 @@ type Skill = {
 
 const skills: Skill[] = [
   {
-    category: "Design",
-    items: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "UI/UX", "Wireframing", "Prototyping"],
-  },
-  {
     category: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Three.js"],
+    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Tailwind CSS"],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "MongoDB", "PostgreSQL", "Firebase", "REST API", "GraphQL"],
+    items: ["Flask", "Node.js", "REST API", "Cleark Authentication"],
   },
+  {
+    category: "Deployment-Tools",
+    items: ["Git", "VS Code", "Vercel", "Postman API"],
+  },
+  {
+    category: "Programming-Languages",
+    items: ["C", "C++", "Python", "SQL", "LaTeX"],
+  },
+  {
+    category: "Design",
+    items: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "UI/UX", "Wireframing", "Prototyping", "Davinci Resolve"],
+  },
+  {
+    category: "Soft",
+    items: ["Problem Solving", "Teamwork", "Communication", "Time Management", "Leadership"],
+  },
+  {
+    category: "Language",
+    items: ["English", "Tamil", "Telugu", "hHindi"],
+  },
+  
 ]
 
 export function Terminal() {
@@ -45,6 +62,7 @@ export function Terminal() {
       "- clear: Clear the terminal",
       "- about: About me",
       "- contact: Contact information",
+      "- echo: print statements",
       "",
     ],
     skills: (args: string[]) => {
@@ -57,7 +75,8 @@ export function Terminal() {
         ]
       }
 
-      const category = args[0]
+      let category = args[0]
+      category = category.slice(1, -1)
       const skillCategory = skills.find((skill) => skill.category.toLowerCase() === category.toLowerCase())
 
       if (!skillCategory) {
@@ -74,18 +93,26 @@ export function Terminal() {
     },
     about: () => [
       "About Me:",
-      "I'm a passionate UI/UX designer and developer with 5+ years of experience",
-      "creating beautiful, functional, and user-centered digital experiences.",
-      "My background in both design and development allows me to bridge the gap",
-      "between aesthetics and functionality.",
+      "I'm a passionate UI/UX designer, frontend developer,",
+      "and data science enthusiast with a love for cybersecurity.",
+      "I create beautiful, functional, and user-centered experiences.",
+      "My passion for data science drives me to uncover insights,",
+      "bridging aesthetics, functionality, and security in tech.",
       "",
     ],
     contact: () => [
       "Contact Information:",
-      "Email: hello@example.com",
-      "LinkedIn: linkedin.com/in/yourname",
-      "GitHub: github.com/yourname",
+      "Email: gowthamjega2005@gmail.com",
+      "LinkedIn: linkedin.com/in/gowtham-jegathesan",
+      "GitHub: github.com/gowtham.2321",
+      "Phone No.: +91 63810 86995",
       "",
+    ],
+    echo: (args: string[]) => {
+      return [args.join(" ")]
+    },
+    dusi: () => [
+      "Fuck you!"
     ],
   }
 
@@ -157,24 +184,32 @@ export function Terminal() {
         ))}
         <div className="flex items-center">
           <span className="text-emerald-500">guest@portfolio:~$</span>
-          <input
-            type="text"
-            value={currentLine}
-            onChange={(e) => setCurrentLine(e.target.value)}
-            onKeyDown={handleKeyDown}
-            className="ml-2 flex-1 bg-transparent text-zinc-300 outline-none"
-            autoFocus
-          />
-          <span className={cn("h-4 w-2 bg-zinc-300", cursorPosition === 0 ? "opacity-0" : "opacity-100")}></span>
+          <div className="relative flex-1">
+            <input
+              type="text"
+              value={currentLine}
+              onChange={(e) => setCurrentLine(e.target.value)}
+              onKeyDown={handleKeyDown}
+              className="ml-2 w-full bg-transparent text-zinc-300 outline-none hoverable"
+              autoFocus
+            />
+            <span
+              className={cn(
+                "absolute top-0 left-2 h-full w-2 bg-zinc-300",
+                cursorPosition === 0 ? "opacity-0" : "opacity-100",
+              )}
+              style={{ transform: `translateX(${currentLine.length * 8}px)` }}
+            ></span>
+          </div>
         </div>
       </div>
       <div className="border-t border-zinc-800 bg-zinc-950 p-2">
         <div className="flex flex-wrap gap-2">
-          {["help", "skills", "about", "contact", "clear"].map((cmd) => (
+          {["help", "skills", "about", "contact", "clear", "echo"].map((cmd) => (
             <Badge
               key={cmd}
               variant="outline"
-              className="cursor-pointer border-zinc-700 text-zinc-400 hover:border-emerald-500 hover:text-emerald-500"
+              className="cursor-pointer border-zinc-700 text-zinc-400 hover:border-emerald-500 hover:text-emerald-500 hoverable"
               onClick={() => handleCommand(cmd)}
             >
               {cmd}

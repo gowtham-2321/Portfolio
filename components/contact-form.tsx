@@ -7,26 +7,29 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Send, Loader2 } from "lucide-react"
+import { useForm } from "@formspree/react"
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   setIsSubmitting(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
+  //   // Simulate form submission
+  //   setTimeout(() => {
+  //     setIsSubmitting(false)
+  //     setIsSubmitted(true)
 
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false)
-      }, 3000)
-    }, 1500)
-  }
+  //     // Reset form after 3 seconds
+  //     setTimeout(() => {
+  //       setIsSubmitted(false)
+  //     }, 3000)
+  //   }, 1500)
+  //}
+
+  const [state, handleSubmit] = useForm("xknkrewb")
 
   return (
     <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900">
@@ -35,36 +38,43 @@ export function ContactForm() {
           <h3 className="mb-1 text-xl font-bold">Let's talk</h3>
           <p className="mb-6 text-zinc-400">Fill out the form and I'll get back to you as soon as possible.</p>
 
-          {isSubmitted ? (
+          {state.succeeded ? (
             <div className="rounded-lg bg-emerald-500/10 p-4 text-emerald-500">
               Thanks for your message! I'll get back to you soon.
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Input
+                <Input 
+                  name="name"
                   placeholder="Your name"
                   required
-                  className="border-zinc-800 bg-zinc-950 focus-visible:ring-emerald-500"
+                  className="border-zinc-800 bg-zinc-950 focus-visible:ring-emerald-500 hoverable"
                 />
               </div>
               <div className="space-y-2">
                 <Input
+                  name="email"
                   type="email"
                   placeholder="Your email"
                   required
-                  className="border-zinc-800 bg-zinc-950 focus-visible:ring-emerald-500"
+                  className="border-zinc-800 bg-zinc-950 focus-visible:ring-emerald-500 hoverable"
                 />
               </div>
               <div className="space-y-2">
                 <Textarea
+                  name="message"
                   placeholder="Your message"
                   required
-                  className="min-h-[120px] border-zinc-800 bg-zinc-950 focus-visible:ring-emerald-500"
+                  className="min-h-[120px] border-zinc-800 bg-zinc-950 focus-visible:ring-emerald-500 hoverable"
                 />
               </div>
-              <Button type="submit" className="w-full bg-emerald-500 hover:bg-emerald-600" disabled={isSubmitting}>
-                {isSubmitting ? (
+              <Button
+                type="submit"
+                className="w-full bg-emerald-500 hover:bg-emerald-600 hoverable"
+                disabled={state.submitting}
+              >
+                {state.submitting ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     Sending...
@@ -90,11 +100,11 @@ export function ContactForm() {
               <Send className="h-6 w-6 text-emerald-500" />
             </div>
             <h3 className="mb-2 text-xl font-bold">Contact Information</h3>
-            <p className="mb-6 text-zinc-400">Reach out and let's create something amazing together.</p>
+            <p className="mb-6 text-zinc-400">Let’s cook up something epic together!</p>
             <div className="space-y-2 text-zinc-400">
               <p>gowthamjega2005@gmail.com</p>
               <p>+91 63810-86995</p>
-              <p>Chennai, TN</p>
+              <p>Chennai, TamilNadu</p>
             </div>
           </div>
         </div>
