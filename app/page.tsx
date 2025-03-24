@@ -98,12 +98,15 @@ export default function Home() {
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
-            <Button
-              variant="outline"
-              className="hidden md:flex border-emerald-500 text-emerald-500 hover:bg-emerald-500/10 hoverable"
-            >
-              Resume
-            </Button>
+            <Link href="https://drive.google.com/file/d/1ffniLetZE9uXP7RLv0zOZUMF_-hxEk4I/view?usp=sharing" target="_blank">
+              <Button
+                variant="outline"
+                className="hidden md:flex border-emerald-500 text-emerald-500 hover:bg-emerald-500/10 hoverable"
+              >
+                Resume
+              </Button>
+            </Link>
+            
           </div>
         </div>
       </header>
