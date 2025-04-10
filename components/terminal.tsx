@@ -14,7 +14,7 @@ type Skill = {
 const skills: Skill[] = [
   {
     category: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Tailwind CSS"],
+    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React (Baics)", "Tailwind CSS"],
   },
   {
     category: "Backend",
@@ -38,7 +38,7 @@ const skills: Skill[] = [
   },
   {
     category: "Language",
-    items: ["English", "Tamil", "Telugu", "hHindi"],
+    items: ["English", "Tamil", "Telugu", "Hindi"],
   },
   
 ]
@@ -71,6 +71,7 @@ export function Terminal() {
           "Skill categories:",
           ...skills.map((skill) => `- ${skill.category}`),
           "Type 'skills [category]' to see specific skills.",
+          "eg: skills [Frontend]",
           "",
         ]
       }
