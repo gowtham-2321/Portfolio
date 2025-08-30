@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, ArrowUpRight, ExternalLink, Github, CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-export default function EcommerceDashboardCaseStudy() {
+export default function medplay() {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
 
@@ -40,7 +40,7 @@ export default function EcommerceDashboardCaseStudy() {
     { label: "Monthly Active Sessions", value: "6.8K" },
     { label: "Total songs Listened", value: "240K" },
     { label: "Lines of Code", value: "8.6K" },
-    { label: "Dashboards", value: "12" },
+    { label: "For all users", value: "FREE" },
   ]
 
   const features = [
@@ -83,12 +83,12 @@ export default function EcommerceDashboardCaseStudy() {
   ]
 
   const screens = [
-    "/overview-screen-ecommerce-dashboard-hero-dark-glas.png",
-    "/sales-analytics-charts-area-bar-dark-neon-highligh.png",
-    "/inventory-table-low-stock-alert-badges-dark-ui.png",
-    "/orders-pipeline-timeline-cards-dark-ui.png",
-    "/customers-segmentation-heatmap-dark-ui.png",
-    "/settings-preferences-theme-toggles-dark-ui.png",
+    "/1.png",
+    "/2.png",
+    "/3.png",
+    "/4.png",
+    "/5.png",
+    "/6.png",
   ]
 
   return (
@@ -119,7 +119,7 @@ export default function EcommerceDashboardCaseStudy() {
               <span className="sr-only">Back to Home</span>
             </Link>
             <h1 className="text-xl font-bold">
-              <span className="text-emerald-500">Medplay</span> - Case Study
+              <span className="text-emerald-500">Medplay</span> - Personal Project
             </h1>
           </div>
           <div className="flex items-center gap-2">
@@ -156,7 +156,7 @@ export default function EcommerceDashboardCaseStudy() {
               Lightweight • Fast • Reliable
             </div>
             <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-300 to-white">
-              An Ad free Modern Music Player
+              An Ad-free Modern Music Player
             </h2>
             <p className="max-w-3xl text-zinc-400 text-lg">
               Medplay is a full-stack music streaming platform that lets users play, download, and organize their favorite tracks. With seamless playlist creation and dynamic queue management, it combines simplicity with powerful features. 
@@ -230,7 +230,7 @@ export default function EcommerceDashboardCaseStudy() {
         <section className="mt-16">
           <div className="mb-6">
             <h3 className="text-2xl md:text-3xl font-bold">Screens</h3>
-            <p className="mt-2 text-zinc-400">Selected interfaces across analytics, operations, and configuration.</p>
+            <p className="mt-2 text-zinc-400">Selected interfaces across albums, artists, and multiple other features.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {screens.map((src, i) => (
