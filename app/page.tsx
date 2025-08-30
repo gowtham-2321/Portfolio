@@ -224,7 +224,7 @@ export default function Home() {
             <p className="mt-4 text-zinc-400">Check out some of my recent work</p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <Link href="/projects/medplay" className="block h-full">
+            <Link href="/medplay" className="block h-full">
               <ProjectCard
                 title="Medplay"
                 description="Flask based full-stack music streaming platform that allows users to play, download songs and manage queues"
