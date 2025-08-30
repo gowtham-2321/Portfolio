@@ -112,9 +112,6 @@ export function Terminal() {
     echo: (args: string[]) => {
       return [args.join(" ")]
     },
-    dusi: () => [
-      "Fuck you!"
-    ],
   }
 
   const handleCommand = (cmd: string) => {
