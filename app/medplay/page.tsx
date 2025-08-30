@@ -124,7 +124,7 @@ export default function medplay() {
           </div>
           <div className="flex items-center gap-2">
             <a href="https://medplay.vercel.app/" target="_blank" rel="noreferrer" className="hoverable">
-              <Button className="gap-2 bg-emerald-500 hover:bg-emerald-600">
+              <Button className="gap-2 bg-emerald-500 hover:bg-emerald-600 text-black">
                 <ExternalLink className="h-4 w-4" />
                 Live Site
               </Button>
@@ -269,7 +269,7 @@ export default function medplay() {
         {/* CTA */}
         <section className="mt-16 flex flex-wrap gap-3">
           <a href="https://medplay.vercel.app" target="_blank" rel="noreferrer" className="hoverable">
-            <Button className="gap-2 bg-emerald-500 hover:bg-emerald-600">
+            <Button className="gap-2 bg-emerald-500 hover:bg-emerald-600 text-black">
               <ExternalLink className="h-4 w-4" />
               Live Site
             </Button>

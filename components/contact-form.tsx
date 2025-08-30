@@ -81,8 +81,8 @@ export function ContactForm() {
                   </>
                 ) : (
                   <>
-                    <Send className="mr-2 h-4 w-4" />
-                    Send Message
+                    <Send className="mr-2 h-4 w-4 text-zinc-800" /><span className="text-zinc-800 font-bold">Send Message</span>
+                  
                   </>
                 )}
               </Button>
