@@ -119,7 +119,8 @@ export default function medplay() {
               <span className="sr-only">Back to Home</span>
             </Link>
             <h1 className="text-xl font-bold">
-              <span className="text-emerald-500">Medplay</span> - Personal Project
+              <span className="text-emerald-500">Medplay</span>
+              <span className="hidden sm:inline"> - Personal Project</span>
             </h1>
           </div>
           <div className="flex items-center gap-2">
