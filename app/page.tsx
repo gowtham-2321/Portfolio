@@ -149,7 +149,12 @@ export default function Home() {
               </div>
             </Link>
 
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-clip-text  text-transparent bg-gradient-to-r from-white via-emerald-300 to-white" style={{height: "100px"}}>
+            <h1
+              className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-300 to-white"
+              style={{
+                minHeight: "130px"
+              }}
+            >
               Gowtham Jegathesan
             </h1>
 
