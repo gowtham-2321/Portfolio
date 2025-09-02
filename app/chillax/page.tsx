@@ -107,7 +107,7 @@ export default function ChillaxProjectPage() {
               Gemini API • Q&A • Python
             </div>
             <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-300 to-white min-h-16">
-              A perfect tool for vibecoders
+              Chillax - A perfect tool for vibecoders
             </h2>
             <p className="max-w-3xl text-zinc-400 text-lg">
               Chillax is not just another wrapper, it’s a whole new way of coding with AI. Instead of memorizing a fixed set of functions, you decide what functions you want.
@@ -125,6 +125,21 @@ export default function ChillaxProjectPage() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* Explainer */}
+        <section className="mt-8">
+          <p className="text-zinc-400 leading-relaxed">
+            Chillax is a playful and flexible Python package designed to make coding feel less like a chore and more like a creative flow.
+            Instead of restricting you to rigid predefined functions, Chillax embraces freedom and fun: you can call functions that may or may not exist,
+            and the library will still respond in an intelligent and useful way.
+            For example, you might use standard helpers like chillax.sort to perform everyday tasks,
+            but you can just as easily invent your own quirky functions like chillax.writePoem and so on.
+            The magic of Chillax lies in its adaptability, it’s not just a toolbox but also a creative playground where your imagination defines the API surface.
+            This makes it perfect for learners who want to explore programming in a relaxed, experimental environment,
+            as well as for developers who want to inject humor and personality into their workflows.
+            Chillax breaks away from conventional coding practices and invites you to experiment with commands that blend productivity, creativity, and entertainment.
+          </p>
         </section>
 
         {/* Install */}
@@ -200,14 +215,19 @@ export default function ChillaxProjectPage() {
                 onClick={() =>
                   copy(
                     [
-                      "import os",
-                      "os.environ.get('GEMINI_API_KEY')  # ensure this is set",
+                      "# Example of a useful function (extendable)",
+                      "my_list = [5, 2, 9, 1]",
+                      "sorted_list = chillax.sort(my_list)",
                       "",
-                      "# Example usage; update import per Chillax API",
-                      "from chillax import ask  # or from chillax import Client",
+                      `#No predefined "explainSorting" exists...`,
+                      `#But you can just call it anyway 👇`,
+                      `print(chillax.explainSorting("quick sort"))`,
                       "",
-                      "answer = ask('Explain gradient descent in simple terms.')",
-                      "print(answer)",
+                      `#Or invent your own creative function names`,
+                      `print(chillax.debugMyCode("def add(a,b): return a-b", "Python"))`,
+                      `print(chillax.writePoem("about vibecoding"))`,
+                      `print(chillax.createPlaylist("lofi coding beats"))`,
+                      `chillax.translateFrenchToEnglish("Je suis Inde")`,
                       "",
                     ].join("\n"),
                   )
@@ -218,19 +238,36 @@ export default function ChillaxProjectPage() {
               </button>
             </div>
             <pre className="p-4 text-sm text-zinc-200 overflow-x-auto">
-              <code>{`import os
-                    os.environ.get('GEMINI_API_KEY')  # ensure this is set
-
-                    # Example usage; update import per Chillax API
-                    from chillax import ask  # or from chillax import Client
-
-                    answer = ask('Explain gradient descent in simple terms.')
-                    print(answer)
-                    `}</code>
+              <code className="text-zinc-500">{"#Example of a useful function (extendable)"}</code>
+              <br />
+              <code>{`my_list = [5, 2, 9, 1]`}</code>
+              <br />
+              <code>{`sorted_list = chillax.sort(my_list)`}</code>
+              <br />
+              <code>{`print(sorted_list)`}</code>
+              <br />
+              <br />
+              <code className="text-zinc-500">{`#No predefined "explainSorting" exists...`}</code>
+              <br />
+              <code className="text-zinc-500">{`#But you can just call it anyway 👇`}</code>
+              <br />
+              <code>{`print(chillax.explainSorting("quick sort"))`}</code>
+              <br />
+              <br />
+              <code className="text-zinc-500">{`#Or invent your own creative function names`}</code>
+              <br />
+              <code>{`print(chillax.debugMyCode("def add(a,b): return a-b", "Python"))`}</code>
+              <br />
+              <code>{`print(chillax.writePoem("about vibecoding"))`}</code>
+              <br />
+              <code>{`print(chillax.createPlaylist("lofi coding beats"))`}</code>
+              <br />
+              <code>{`chillax.translateFrenchToEnglish("Je suis Inde")`}</code>
+              <br />
             </pre>
           </div>
           <p className="text-xs text-zinc-500 mt-3">
-            Note: The exact API surface may differ. See PyPI for authoritative docs and usage.
+            Note: The function names are entirely up to your creativity, you can call anything you like, and Chillax will try to handle it.
           </p>
         </section>
 
@@ -244,7 +281,7 @@ export default function ChillaxProjectPage() {
             <div className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900">
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/chillax-terminal-usage---asking-gemini-question.png"
+                  src="/chillax1.png"
                   alt="Chillax terminal usage example: asking Gemini a question"
                   fill
                   className="object-cover"
@@ -254,7 +291,7 @@ export default function ChillaxProjectPage() {
             <div className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900">
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/chillax-python-code-snippet-and-response-preview.png"
+                  src="/chillax2.png"
                   alt="Chillax Python code snippet and response preview"
                   fill
                   className="object-cover"
