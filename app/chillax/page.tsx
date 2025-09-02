@@ -35,8 +35,8 @@ export default function ChillaxProjectPage() {
   }, [])
 
   const highlights = [
-    "Simple API to get answers via Google Gemini",
-    "Environment-variable based credential loading",
+    "One line setup - just set your API key and you’re ready",
+    "Make up your own functions - upto your imagination",
     "Lightweight, Pythonic interface",
   ]
 
@@ -106,12 +106,11 @@ export default function ChillaxProjectPage() {
             <div className="inline-flex items-center justify-center px-3 py-1 mb-6 border border-emerald-500/30 rounded-full bg-emerald-500/10 text-emerald-400 backdrop-blur-sm hoverable">
               Gemini API • Q&A • Python
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-300 to-white">
-              Ask Gemini with a chill, minimal Python API
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-300 to-white min-h-16">
+              A perfect tool for vibecoders
             </h2>
             <p className="max-w-3xl text-zinc-400 text-lg">
-              Chillax is a Python module that wraps the Gemini API to fetch concise answers from prompts. Install via
-              pip, set your API key, and start querying in seconds.
+              Chillax is not just another wrapper, it’s a whole new way of coding with AI. Instead of memorizing a fixed set of functions, you decide what functions you want.
             </p>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -153,37 +152,34 @@ export default function ChillaxProjectPage() {
         <section className="mt-12">
           <h3 className="text-2xl md:text-3xl font-bold mb-3">Setup</h3>
           <p className="text-zinc-400 mb-4">
-            Provide your Gemini API key via environment variable. Replace with your actual key.
+            Import chillax from chillax and set the Gemini api key using the setAPIKey() function
           </p>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="gap-4">
             <div className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900">
               <div className="flex items-center justify-between px-4 py-2 border-b border-zinc-800 text-xs text-zinc-400">
-                <span>Unix</span>
+                <span>Python</span>
                 <button
                   className="flex items-center gap-1 text-zinc-400 hover:text-emerald-400 hoverable"
-                  onClick={() => copy('export GEMINI_API_KEY="your_api_key_here"')}
+                  onClick={() => copy([
+                    "import chillax from chillax",
+                    "",
+                    "#use the setAPIKey() function",
+                    `chillax.setAPIKey("your_api_key")`,
+                  ].join("\n")
+                )}
                   aria-label="Copy env var"
                 >
                   <Copy className="h-3.5 w-3.5" /> Copy
                 </button>
               </div>
               <pre className="p-4 text-sm text-zinc-200 overflow-x-auto">
-                <code>{'export GEMINI_API_KEY="your_api_key_here"'}</code>
-              </pre>
-            </div>
-            <div className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900">
-              <div className="flex items-center justify-between px-4 py-2 border-b border-zinc-800 text-xs text-zinc-400">
-                <span>Windows (PowerShell)</span>
-                <button
-                  className="flex items-center gap-1 text-zinc-400 hover:text-emerald-400 hoverable"
-                  onClick={() => copy('$env:GEMINI_API_KEY="your_api_key_here"')}
-                  aria-label="Copy env var"
-                >
-                  <Copy className="h-3.5 w-3.5" /> Copy
-                </button>
-              </div>
-              <pre className="p-4 text-sm text-zinc-200 overflow-x-auto">
-                <code>{'$env:GEMINI_API_KEY="your_api_key_here"'}</code>
+                <code>{'import chillax from chillax'}</code>
+                <br />
+                <br />  
+                <code className="text-zinc-500">{'#use the setAPIKey() function'}</code>
+                <br />
+                <code>{'chillax.setAPIKey("your_api_key")'}</code>
+                <br />
               </pre>
             </div>
           </div>
@@ -223,14 +219,14 @@ export default function ChillaxProjectPage() {
             </div>
             <pre className="p-4 text-sm text-zinc-200 overflow-x-auto">
               <code>{`import os
-os.environ.get('GEMINI_API_KEY')  # ensure this is set
+                    os.environ.get('GEMINI_API_KEY')  # ensure this is set
 
-# Example usage; update import per Chillax API
-from chillax import ask  # or from chillax import Client
+                    # Example usage; update import per Chillax API
+                    from chillax import ask  # or from chillax import Client
 
-answer = ask('Explain gradient descent in simple terms.')
-print(answer)
-`}</code>
+                    answer = ask('Explain gradient descent in simple terms.')
+                    print(answer)
+                    `}</code>
             </pre>
           </div>
           <p className="text-xs text-zinc-500 mt-3">
