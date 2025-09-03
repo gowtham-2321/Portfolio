@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, ArrowUpRight, ExternalLink, Github, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, ExternalLink, Github, CheckCircle2, Linkedin, Mail, ArrowDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export default function medplay() {
@@ -92,7 +92,8 @@ export default function medplay() {
   ]
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="relative min-h-screen bg-black text-white">
+
       {/* Custom cursor */}
       <div
         className="fixed z-[100] pointer-events-none mix-blend-difference transition-transform duration-150"
@@ -125,7 +126,7 @@ export default function medplay() {
           </div>
           <div className="flex items-center gap-2">
             <a href="https://medplay.vercel.app/" target="_blank" rel="noreferrer" className="hoverable">
-              <Button className="gap-2 bg-emerald-500 hover:bg-emerald-600 text-black">
+              <Button className="gap-2 bg-emerald-500 hover:bg-emerald-800 text-black hover:text-zinc-300 font-bold">
                 <ExternalLink className="h-4 w-4" />
                 Live Site
               </Button>
@@ -148,7 +149,8 @@ export default function medplay() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 pt-24 pb-16">
+      <main className="relative container mx-auto px-4 pt-24 pb-16">
+
         {/* Hero */}
         <section className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-b from-zinc-900/70 to-zinc-950 p-6 md:p-10">
           <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
@@ -270,7 +272,7 @@ export default function medplay() {
         {/* CTA */}
         <section className="mt-16 flex flex-wrap gap-3">
           <a href="https://medplay.vercel.app" target="_blank" rel="noreferrer" className="hoverable">
-            <Button className="gap-2 bg-emerald-500 hover:bg-emerald-600 text-black">
+            <Button className="gap-2 bg-emerald-500 hover:bg-emerald-800 text-black hover:text-zinc-300 font-bold">
               <ExternalLink className="h-4 w-4" />
               Live Site
             </Button>
@@ -291,6 +293,36 @@ export default function medplay() {
           </a>
         </section>
       </main>
+      {/* Footer */}
+      <footer className="border-t border-zinc-800 bg-black py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-zinc-500">© {new Date().getFullYear()} Gowtham Jegathesan. All rights reserved.</p>
+            <div className="flex space-x-6">
+              <Link href="mailto:gowthamjega2005@gmail.com" className="text-zinc-500 hover:text-emerald-500 hoverable">
+                <Mail className="h-5 w-5" />
+                <span className="sr-only">Email</span>
+              </Link>
+              <Link
+                href="https://github.com/gowtham-2321"
+                target="_blank"
+                className="text-zinc-500 hover:text-emerald-500 hoverable"
+              >
+                <Github className="h-5 w-5" />
+                <span className="sr-only">GitHub</span>
+              </Link>
+              <Link
+                href="https://linkedin.com/in/gowtham-jegathesan"
+                target="_blank"
+                className="text-zinc-500 hover:text-emerald-500 hoverable"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

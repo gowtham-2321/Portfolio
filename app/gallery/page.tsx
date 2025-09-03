@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, ArrowUpRight, Maximize2, X } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, Maximize2, X, Github, Linkedin, Mail, ArrowDown  } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 // Gallery images data
@@ -13,91 +13,91 @@ const galleryImages = [
     id: 1,
     title: "Language Learning App",
     description: "Playful, intuitive, accessible, engaging language-learning app.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/1.jpg",
+    src: "/images/1.jpg",
     category: "Learning",
   },
   {
     id: 2,
     title: "Hotel Booking App",
     description: "A user-friendly app for finding hotels easily.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/2.jpg",
+    src: "/images/2.jpg",
     category: "Booking",
   },
   {
     id: 3,
     title: "Travel Planner App",
     description: "An intuitive and engaging app for travel planning.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/3.jpg",
+    src: "/images/3.jpg",
     category: "Booking",
   },
   {
     id: 4,
     title: "Self Improvement App",
     description: "A motivating app for growth and self-improvement.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/4.jpg",
+    src: "/images/4.jpg",
     category: "Task Management",
   },
   {
     id: 5,
     title: "Japanese Themed",
     description: "A user-friendly app for exploring and navigating Japan",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/5.jpg",
+    src: "/images/5.jpg",
     category: "Explorer",
   },
   {
     id: 6,
     title: "Illustrations App",
     description: "An intuitive app UI for exploring categorized illustrations.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/6.jpg",
+    src: "/images/6.jpg",
     category: "UI Design",
   },
   {
     id: 7,
     title: "City Explorer App",
     description: "An intuitive UI for seamless city exploration.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/7.jpg",
+    src: "/images/7.jpg",
     category: "Explorer",
   },
   {
     id: 8,
     title: "Blog Post App",
     description: "A clean, immersive UI for seamless blog reading.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/8.jpg",
+    src: "/images/8.jpg",
     category: "Blog",
   },
   {
     id: 9,
     title: "Learning App",
     description: "An engaging UI for structured, interactive learning.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/9.png",
+    src: "/images/9.png",
     category: "Learning",
   },
   {
     id: 10,
     title: "On-Boarding UI",
     description: "A smooth, intuitive, and engaging onboarding experience.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/10.jpg",
+    src: "/images/10.jpg",
     category: "On-boarding",
   },
   {
     id: 11,
     title: "Tourism App",
     description: "A seamless, intuitive UI for exploring travel destinations.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/11.jpg",
+    src: "/images/11.jpg",
     category: "Explorer",
   },
   {
     id: 12,
     title: "Blog Reading App",
     description: "A clean, user-friendly UI for effortless blog reading.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/12.jpg",
+    src: "/images/12.jpg",
     category: "Blog",
   },
   {
     id: 13,
     title: "Tech News",
     description: "A smooth, engaging UI for tech news onboarding.",
-    src: "https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/13.jpg",
+    src: "/images/13.jpg",
     category: "On-boarding",
   },
 ]
@@ -152,7 +152,8 @@ export default function GalleryPage() {
   }, [activeCategory])
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="relative min-h-screen bg-black text-white">
+
       {/* Custom cursor */}
       <div
         className="fixed z-[100] pointer-events-none mix-blend-difference transition-transform duration-150"
@@ -282,6 +283,36 @@ export default function GalleryPage() {
           </div>
         </div>
       )}
+      {/* Footer */}
+      <footer className="border-t border-zinc-800 bg-black py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-zinc-500">© {new Date().getFullYear()} Gowtham Jegathesan. All rights reserved.</p>
+            <div className="flex space-x-6">
+              <Link href="mailto:gowthamjega2005@gmail.com" className="text-zinc-500 hover:text-emerald-500 hoverable">
+                <Mail className="h-5 w-5" />
+                <span className="sr-only">Email</span>
+              </Link>
+              <Link
+                href="https://github.com/gowtham-2321"
+                target="_blank"
+                className="text-zinc-500 hover:text-emerald-500 hoverable"
+              >
+                <Github className="h-5 w-5" />
+                <span className="sr-only">GitHub</span>
+              </Link>
+              <Link
+                href="https://linkedin.com/in/gowtham-jegathesan"
+                target="_blank"
+                className="text-zinc-500 hover:text-emerald-500 hoverable"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

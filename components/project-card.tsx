@@ -119,6 +119,12 @@ export function ProjectCard({ title, description, tags, image, githubUrl, liveUr
               <ArrowUpRight className="ml-1 h-4 w-4" />
             </div>
           )}
+          {isLink === "chillax" && (
+            <div className="flex items-center text-emerald-400 text-sm mb-4">
+              <span>Learn More</span>
+              <ArrowUpRight className="ml-1 h-4 w-4" />
+            </div>
+          )}
           {isLink === "medplay" && (
             <div className="flex items-center text-emerald-400 text-sm mb-4">
               <span>Learn More</span>

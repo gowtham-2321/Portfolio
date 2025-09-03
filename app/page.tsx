@@ -164,7 +164,7 @@ export default function Home() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <Link href={`#projects`}>
-                <Button className="bg-emerald-500 hover:bg-emerald-800 text-secondary font-bold hover:text-zinc-300 rounded-full px-8 hoverable">
+                <Button className="bg-emerald-500 hover:bg-emerald-800 text-black font-bold hover:text-zinc-300 rounded-full px-8 hoverable">
                   View Projects
                 </Button>
               </Link>
@@ -238,12 +238,21 @@ export default function Home() {
                 isLink= "medplay"
               />
             </Link>
+            <Link href="/chillax" className="block h-full">
+              <ProjectCard
+                title="Chillax"
+                description="Chillax is a flexible Python package enabling dynamic, user-defined function calls that combine practical utilities with creative, customizable interactions."
+                tags={["Python", "Gemini API", "PYPI"]}
+                image="/chillax.png"
+                isLink= "chillax"
+              />
+            </Link>
             <Link href="/gallery" className="block h-full">
               <ProjectCard
                 title="UI UX Designs"
                 description="Designing intuitive, user-centric experiences that balance beauty and functionality to create seamless digital interactions."
                 tags={["Figma", "Adobe XD", "Photoshop"]}
-                image="https://raw.githubusercontent.com/gowtham-2321/gowtham-2321.github.io/refs/heads/main/img/13.jpg"
+                image="/images/13.jpg"
                 isLink= "gallery"
               />
             </Link>

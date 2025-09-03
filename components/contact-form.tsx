@@ -71,7 +71,7 @@ export function ContactForm() {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-emerald-500 hover:bg-emerald-600 hoverable"
+                className="w-full bg-emerald-500 hover:bg-emerald-800 text-black hover:text-zinc-300 hoverable"
                 disabled={state.submitting}
               >
                 {state.submitting ? (
@@ -81,7 +81,7 @@ export function ContactForm() {
                   </>
                 ) : (
                   <>
-                    <Send className="mr-2 h-4 w-4 text-zinc-800" /><span className="text-zinc-800 font-bold">Send Message</span>
+                    <Send className="mr-2 h-4 w-4" /><span className="font-bold">Send Message</span>
                   
                   </>
                 )}
