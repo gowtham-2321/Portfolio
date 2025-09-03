@@ -14,7 +14,7 @@ type Skill = {
 const skills: Skill[] = [
   {
     category: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React (Baics)", "Tailwind CSS"],
+    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React (Basics)", "Tailwind CSS"],
   },
   {
     category: "Backend",
