@@ -94,7 +94,7 @@ export function Terminal() {
     },
     about: () => [
       "About Me:",
-      "I'm a passionate UI/UX designer, frontend developer,",
+      "Hey I'm Gowtham, a passionate UI/UX designer, frontend developer,",
       "and data science enthusiast with a love for cybersecurity.",
       "I create beautiful, functional, and user-centered experiences.",
       "My passion for data science drives me to uncover insights,",
@@ -112,6 +112,9 @@ export function Terminal() {
     echo: (args: string[]) => {
       return [args.join(" ")]
     },
+    whoami: () => [
+      "stalker@portfolio",
+    ],
     rickroll: () => [
       "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⡿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣻⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⡽⣯⣻⣻⡽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣻⣻",
       "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⡿⣿⣿⣿⣿⣿⣿⡿⣻⣻⣻⣻⣻⣻⡽⣯⣟⢷⠍⠟⠉⠛⢿⢿⣻⣻⢿⣿⣿⣯⣻⡽⣯⣻⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⢯",
