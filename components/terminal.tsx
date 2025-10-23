@@ -63,6 +63,8 @@ export function Terminal() {
       "- about: About me",
       "- contact: Contact information",
       "- echo: print statements",
+      "- medplay: redirects to medplay",
+      "- whoami: who are you?",
       "",
     ],
     skills: (args: string[]) => {
@@ -101,6 +103,18 @@ export function Terminal() {
       "bridging aesthetics, functionality, and security in tech.",
       "",
     ],
+    medplay: () => {
+      setTimeout(() => {
+        window.open("https://medplay.vercel.app/", "_blank");
+      }, 500)
+      return ["Redirecting to MedPlay...", ""]
+    },
+    chillax: () => {
+      setTimeout(() => {
+        window.open("https://pypi.org/project/Chillax/", "_blank");
+      }, 500)
+      return ["Redirecting to Chillax PyPI Page...", ""]
+    },
     contact: () => [
       "Contact Information:",
       "Email: gowthamjega2005@gmail.com",
