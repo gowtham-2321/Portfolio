@@ -38,7 +38,7 @@ export default function medplay() {
 
   const stats = [
     { label: "Monthly Active Sessions", value: "6.8K" },
-    { label: "Total songs Listened", value: "399K+" },
+    { label: "Total songs Listened", value: "417+" },
     { label: "Lines of Code", value: "8.6K" },
     { label: "For all users", value: "FREE" },
   ]
